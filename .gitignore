@@ -1,0 +1,53 @@
+# Laufzeit-/Build-Ausgabe: die gebaute .exe (app/) UND alle Nutzdaten (data/ - u. a.
+# gescrapte Profile realer Personen sowie das Browserprofil mit der aktiven LinkedIn-
+# Session/Login-Cookies) liegen komplett außerhalb des Quellcodes und werden zur
+# Laufzeit/beim Build automatisch neu angelegt (siehe config.ensure_data_dirs() und
+# build/build.ps1). Nichts darin gehört ins Repo - AUSSER der Beispiel-CSV unten, die
+# explizit wieder freigegeben wird (Vorlage für Setup-Schritt 2 in README.md).
+/LinkedInScraper/app/
+/LinkedInScraper/data/*
+!/LinkedInScraper/data/input/
+/LinkedInScraper/data/input/*
+!/LinkedInScraper/data/input/input_profiles.example.csv
+
+# PyInstaller-Arbeitsverzeichnis (build/_work) - der eigentliche Build-Spec und
+# build.ps1 bleiben versioniert, nur die generierten Zwischendateien nicht.
+/build/_work/
+/build/__pycache__/
+
+# Backup-/Archivdatei, nicht Teil des Quellcodes.
+/LinkedInScraper.rar
+
+# Lokales Debug-Log eines einzelnen Testlaufs (enthält u. a. lokale Windows-Pfade).
+/debug.log
+
+# Interne Arbeitsdokumentation (Entscheidungslog/Statusnotizen der Zusammenarbeit mit
+# Claude Code) - nicht für die Veröffentlichung bestimmt.
+/CLAUDE.md
+/Claude_code.md
+/Konversation_*.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/dist/
+
+# Virtuelle Umgebungen
+.venv/
+venv/
+env/
+ENV/
+
+# Editor-/OS-Artefakte
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Umgebungsvariablen/Secrets, falls künftig verwendet
+.env
+.env.*

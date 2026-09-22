@@ -1,0 +1,10 @@
+# Nur zum Kompilieren (build\build.ps1) gebraucht - NICHT für den normalen
+# Quellcode-Betrieb (dafür reicht requirements.txt im Projektstamm).
+# Getestete Umgebung Stand 2026-09-11 (siehe requirements.txt-Kopf für Details zur
+# Pinning-Begründung / NFA5).
+pyinstaller==6.22.2
+pyinstaller-hooks-contrib==2026.7
+# PyInstallers modulegraph importiert intern noch pkg_resources; das ist ab
+# Setuptools 81 entfernt (Warnung "slated for removal 2025-11-30"). Ohne diesen Pin
+# bricht der Build mit ModuleNotFoundError: pkg_resources ab.
+setuptools<81

@@ -1,0 +1,27 @@
+# Getestete Umgebung (Stand 2026-09-11, v0.7.6):
+#   Windows 10 Pro 19045 · Python 3.12.10 · Google Chrome 134.0.6998.89
+# Die Versionen sind bewusst GEPINNT statt als Untergrenze angegeben: das Artefakt soll
+# Monate später identisch nachvollziehbar sein (NFA5). Zum Aktualisieren die Werte hier
+# anheben und anschließend Menüpunkt 4 (Fingerprint prüfen) laufen lassen.
+# Python-Wechsel von 3.10.0 auf 3.12.10 in v0.7.6: 3.10 erreicht Okt. 2026 End-of-Life,
+# außerdem verhinderte ein CPython-3.10.0-Bug (dis.py, siehe CHANGELOG 0.7.6) das
+# Kompilieren einer .exe. Alle Parser/Fetch-Tests liefern unter 3.12.10 dieselben
+# Ergebnisse wie unter 3.10.0 (siehe CHANGELOG).
+requests==2.32.3
+beautifulsoup4==4.13.4
+
+# TLS-/HTTP-2-Fingerprint eines echten Chrome für die HTTP-Abrufe (fetch/http_client.py).
+# Ohne dieses Paket läuft es mit `requests` weiter, aber der Fingerprint ist schwächer.
+# Das Impersonation-Ziel wird zur Laufzeit aus der installierten Chrome-Version
+# abgeleitet (fingerprint.py), nicht hier festgelegt.
+curl_cffi==0.16.3
+
+# Browser-Fetcher für die client-seitig gerenderten Felder (Kontakt-Overlay, Ausbildung,
+# Kenntnisse, Sprachen, Zertifikate). Nach der Installation einmalig
+# `playwright install chromium` ausführen - das ist nur der Rückfall; im Normalbetrieb
+# wird über BROWSER_CHANNEL = "chrome" das installierte Google Chrome benutzt.
+#
+# Empfehlung: dieses Projekt in einer eigenen virtuellen Umgebung installieren
+# (`py -3 -m venv .venv`), sonst kollidiert die gepinnte Playwright-Version
+# gegebenenfalls mit anderen Werkzeugen auf demselben Rechner.
+playwright==1.62.0

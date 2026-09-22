@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn Research Scraper - Session Bridge",
+  "version": "0.1.2",
+  "description": "Uebertraegt LinkedIn-Session-Cookies lokal per Native Messaging an das Python-Forschungstool (Bachelorarbeit, nur Profile mit Einwilligung).",
+  "permissions": ["cookies", "nativeMessaging"],
+  "host_permissions": ["*://*.linkedin.com/*"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
